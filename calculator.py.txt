@@ -1,0 +1,73 @@
+import math
+
+def get_float_input(prompt):
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print("Число введено неверно")
+
+def calculator():
+    while True:
+        try:
+            print("Выберите действие программы:\n"
+                  "1.Сложить\n"
+                  "2.Вычесть\n"
+                  "3.Умножить\n"
+                  "4.Разделить\n"
+                  "5.Возвести в степень\n"
+                  "6.Вычислить квадратный корень"
+                  "7.Факториал\n"
+                  "8.Синус\n"
+                  "9.Косинус\n"
+                  "10.Тангенс\n"
+                  "11.Выход\n")
+            command = float(input("Введите номер операции:"))
+            match command:
+                case 1:
+                    number1 = get_float_input('Введите первое число:\n')
+                    number2 = get_float_input('Введите второе число:\n')
+                    print(f"Ответ: {number1 + number2}\n")
+                case 2:
+                    number1 = get_float_input('Введите первое число:\n')
+                    number2 = get_float_input('Введите второе число:\n')
+                    print(f"Ответ: {number1 - number2}\n")
+                case 3:
+                    number1 = get_float_input('Введите первое число:\n')
+                    number2 = get_float_input('Введите второе число:\n')
+                    print(f"Ответ: {number1 * number2}\n")
+                case 4:
+                    number1 = get_float_input('Введите первое число:\n')
+                    number2 = get_float_input('Введите второе число:\n')
+                    if number2 != 0:
+                        print(f"Ответ: {number1 / number2}\n")
+                    else:
+                        print(f"На нуль делить нельзя\n")
+                case 5:
+                    number1 = get_float_input('Введите первое число:\n')
+                    number2 = get_float_input('Введите второе число:\n')
+                    print(f"Ответ: {math.pow(number1, number2)}\n")
+                case 6:
+                    number1 = get_float_input('Введите число:\n')
+                    print(f"Ответ: {math.sqrt(number1)}\n")
+                case 7:
+                    number1 = get_float_input('Введите число:\n')
+                    if number1 < 0:
+                        print("Необходимо ввести целое положительное число")
+                    else:
+                        print(f"Ответ: {math.factorial(int(number1))}\n")
+                case 8:
+                    number1 = get_float_input('Введите число:\n')
+                    print(f"Ответ: {math.sin(math.radians(number1))}\n")
+                case 9:
+                    number1 = get_float_input('Введите число:\n')
+                    print(f"Ответ: {math.cos(math.radians(number1))}\n")
+                case 10:
+                    number1 = get_float_input('Введите число:\n')
+                    print(f"Ответ: {math.tan(math.radians(number1))}\n")
+                case 11:
+                    exit()
+        except ValueError:
+            print(f"\nНеизвестная команда")
+
+calculator()
